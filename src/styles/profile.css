@@ -1,0 +1,160 @@
+/* ===== Base Flex Layout (Image Left, Terminal Right) ===== */
+.profile-section {
+  width: 80%;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: row-reverse; /* Image on LEFT, terminal on RIGHT */
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+
+/* ===== Responsive for Mobile ===== */
+@media screen and (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .terminal-box,
+  .profile-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .terminal-box.slide-left,
+  .profile-image.slide-in {
+    animation: none;
+    transform: none;
+  }
+
+  .profile-image img {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
+/* ===== Terminal Box Styles ===== */
+.terminal-box {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  padding: 30px;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 0 20px rgba(0, 255, 180, 0.4);
+  min-width: 300px;
+  animation: pulse-glow 2s infinite alternate;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+
+/* ===== Image Box Styles ===== */
+.profile-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease;
+}
+
+.profile-image img {
+  max-width: 320px;
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 25px rgba(0, 255, 180, 0.6);
+  transition: transform 0.3s ease;
+  animation: float-img 3s ease-in-out infinite;
+}
+
+.profile-image img:hover {
+  transform: scale(1.06);
+}
+
+/* ===== Typing Terminal Styling ===== */
+.terminal-header {
+  color: #00ffb2;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #00ffcc;
+  padding-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.terminal-body {
+  white-space: pre-wrap;
+}
+
+.terminal-body .cmd {
+  color: #00e6b8;
+  font-weight: bold;
+}
+
+.terminal-body .output {
+  color: #b2ffb2;
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== Float & Glow Animations ===== */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 180, 0.4);
+    border-color: #00ffcc;
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(0, 255, 180, 0.8);
+    border-color: #00ffd5;
+  }
+}
+
+@keyframes float-img {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== Animations for Split View (Large Screens) ===== */
+.profile-section.full-terminal {
+  justify-content: center;
+}
+
+.profile-section.split {
+  flex-direction: row-reverse; /* Again, image left, terminal right */
+  justify-content: space-between;
+}
+
+.terminal-box.slide-left {
+  animation: slideLeft 1s forwards;
+}
+
+.profile-image.hidden {
+  display: none;
+}
+
+.profile-image.slide-in {
+  display: flex;
+  animation: slideInLeft 1s forwards;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateY(-10%) scale(0.95); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateY(-50%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}

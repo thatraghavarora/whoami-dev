@@ -1,0 +1,197 @@
+/* src/components/Navbar.css */
+
+/* Navbar outer container */
+.navbar-wrapper {
+  width: 80%;
+  margin: 30px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 255, 180, 0.2);
+  border: 1px solid rgba(0, 255, 180, 0.2);
+}
+
+/* Navbar bar style */
+.custom-navbar {
+  background-color: #0d0d0d !important;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 150, 0.2);
+}
+
+/* Logo glow effect */
+.logo .glow {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffc3;
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 0 0 12px #00ffc3, 0 0 25px #00ffb3;
+}
+
+/* Nav links */
+.hacker-nav .nav-link {
+  color: #aaffdd !important;
+  font-size: 1rem;
+  margin: 0 15px;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+.hacker-nav .nav-link:hover {
+  color: #00ffd5 !important;
+  text-shadow: 0 0 5px #00ffd5;
+  transform: scale(1.05);
+}
+
+.hacker-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, #00ffd5, #00ff80);
+  transition: width 0.4s ease-in-out;
+}
+
+.hacker-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Button group */
+.button-group .nav-btn {
+  font-size: 1rem;
+  margin-left: 14px;
+  padding: 10px 22px;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 35px;
+  transition: 0.3s ease-in-out;
+  box-shadow: none;
+  position: relative;
+}
+
+/* Double border effect */
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 40px;
+  border: 2px solid currentColor;
+  opacity: 0.5;
+  z-index: -1;
+  animation: glow-border 2s infinite alternate;
+}
+
+@keyframes glow-border {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 150, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 150, 0.6);
+  }
+}
+
+/* Hacker Teal Button */
+.neon-btn {
+  background-color: #6d916d;
+  color: #00ffd5;
+  border: 2px solid #00ffd5;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
+  z-index: 1;
+}
+
+.neon-btn:hover {
+  background-color: #002620;
+  color: #00ffc3;
+  box-shadow: 0 0 20px #00ffc3, 0 0 35px #00ffc3;
+  transform: scale(1.07);
+}
+
+/* Hacker Purple Button */
+.neon-outline {
+  background: transparent;
+  color: #9f00ff;
+  border: 2px solid #9f00ff;
+  box-shadow: 0 0 10px rgba(159, 0, 255, 0.3);
+  z-index: 1;
+}
+
+.neon-outline:hover {
+  background-color: #9f00ff;
+  color: #000;
+  box-shadow: 0 0 15px #9f00ff, 0 0 30px #9f00ff;
+  transform: scale(1.07);
+}
+/* Shared Button Base */
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 22px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hacker Teal Button */
+.neon-btn {
+  color: #00ffd5;
+  border: 2px solid #00ffd5;
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
+  background: transparent;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #002620;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.neon-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.neon-btn:hover {
+  color: #00ffc3;
+  transform: scale(1.05);
+}
+
+/* Hacker Purple Button */
+.neon-outline {
+  color: #9f00ff;
+  border: 2px solid #9f00ff;
+  box-shadow: 0 0 10px rgba(159, 0, 255, 0.3);
+  background: transparent;
+}
+
+.neon-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #1a001f;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.neon-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.neon-outline:hover {
+  color: #ffccff;
+  transform: scale(1.05);
+}
